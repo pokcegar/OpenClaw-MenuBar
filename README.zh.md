@@ -26,7 +26,7 @@ OpenClaw Gateway 的 macOS 菜单栏控制器，专门解决 iMessage 完全磁�
 3. 自动处理权限继承
 
 ```
-Tony Controller.app → Terminal.app（有完全磁盘访问权限）→ Gateway ✅
+OpenClaw MenuBar.app → Terminal.app（有完全磁盘访问权限）→ Gateway ✅
 ```
 
 ## 安装
@@ -39,7 +39,7 @@ cd OpenClaw-MenuBar
 swift build -c release
 ```
 
-构建好的应用位于 `.build/release/TonyController`。
+构建好的二进制文件位于 `.build/release/OpenClawMenuBar`。
 
 ### 方式二：下载 Release
 
@@ -85,17 +85,17 @@ TonyController/
 2. **辅助功能**（可选）- 增强 UI 交互
 
 授予权限：
-- 系统设置 → 隐私与安全性 → 自动化 → 启用"Tony Controller"
+- 系统设置 → 隐私与安全性 → 自动化 → 启用"OpenClaw MenuBar"
 
 ## 常见问题
 
 ### Terminal 窗口没有弹出
 - 检查 Terminal.app 是否有完全磁盘访问权限
-- 确认"Tony Controller"的"自动化"权限已开启
+- 确认"OpenClaw MenuBar"的"自动化"权限已开启
 - 查看 Console.app 中的错误信息
 
 ### iMessage 无法正常工作
-- 确保 Gateway 是通过 Tony Controller 启动的（不是直接启动）
+- 确保 Gateway 是通过 OpenClaw MenuBar 启动的（不是直接启动）
 - 验证 Terminal.app 有完全磁盘访问权限
 - 使用控制器重启 Gateway
 

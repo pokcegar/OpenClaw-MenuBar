@@ -26,7 +26,7 @@ When OpenClaw Gateway is started via LaunchAgent or directly, it may not have fu
 3. Automatically handling permission inheritance
 
 ```
-Tony Controller.app → Terminal.app (with full disk access) → Gateway ✅
+OpenClaw MenuBar.app → Terminal.app (with full disk access) → Gateway ✅
 ```
 
 ## Installation
@@ -39,7 +39,7 @@ cd OpenClaw-MenuBar
 swift build -c release
 ```
 
-The built app will be at `.build/release/TonyController`.
+The built binary will be at `.build/release/OpenClawMenuBar`.
 
 ### Method 2: Download Release
 
@@ -85,17 +85,17 @@ The app requires the following permissions:
 2. **Accessibility** (optional) - For enhanced UI interactions
 
 To grant permissions:
-- System Settings → Privacy & Security → Automation → Enable "Tony Controller"
+- System Settings → Privacy & Security → Automation → Enable "OpenClaw MenuBar"
 
 ## Troubleshooting
 
 ### No Terminal Window Appears
 - Check if Terminal.app has Full Disk Access
-- Verify "Automation" permission is granted to Tony Controller
+- Verify "Automation" permission is granted to OpenClaw MenuBar
 - Check Console.app for error messages
 
 ### iMessage Not Working
-- Ensure Gateway was started through Tony Controller (not directly)
+- Ensure Gateway was started through OpenClaw MenuBar (not directly)
 - Verify Terminal.app has Full Disk Access permission
 - Restart Gateway using the controller
 

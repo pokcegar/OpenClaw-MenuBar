@@ -60,7 +60,7 @@ class MenuBarController: ObservableObject {
         
         // 标题项（不可点击）
         let titleItem = NSMenuItem()
-        titleItem.title = "🦞 Tony Controller"
+        titleItem.title = "🦞 OpenClaw MenuBar"
         titleItem.isEnabled = false
         menu.addItem(titleItem)
         
@@ -157,7 +157,7 @@ class MenuBarController: ObservableObject {
         let altSymbol = gatewayRunning ? "checkmark.circle.fill" : "xmark.circle.fill"
         let color = gatewayRunning ? NSColor.systemGreen : NSColor.systemRed
         
-        if let image = NSImage(systemSymbolName: altSymbol, accessibilityDescription: "Tony Controller") {
+        if let image = NSImage(systemSymbolName: altSymbol, accessibilityDescription: "OpenClaw MenuBar") {
             // 配置图标颜色和大小
             let config = NSImage.SymbolConfiguration(pointSize: 16, weight: .regular)
                 .applying(NSImage.SymbolConfiguration(paletteColors: [color]))

@@ -1,6 +1,6 @@
 import Foundation
 
-/// 管理 Tony Controller 的设置
+/// 管理 OpenClaw MenuBar 的设置
 class SettingsManager {
     static let shared = SettingsManager()
     

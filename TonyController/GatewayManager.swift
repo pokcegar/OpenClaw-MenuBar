@@ -3,6 +3,13 @@ import AppKit
 
 class GatewayManager {
     
+    /// 获取 OpenClaw 工作目录
+    private var workspacePath: String {
+        // 使用用户主目录下的 .openclaw/workspace
+        let home = FileManager.default.homeDirectoryForCurrentUser.path
+        return "\(home)/.openclaw/workspace"
+    }
+    
     /// 检查 Gateway 是否正在运行
     func isGatewayRunning() -> Bool {
         let killTask = Process()
@@ -72,7 +79,7 @@ if [ -n \\"$PID\\" ]; then
     exit 0
 fi
 echo '📁 切换到工作目录...'
-cd /Users/zzy/.openclaw/workspace
+cd \(workspacePath)
 echo '🚀 启动 Gateway...'
 nohup openclaw gateway > /tmp/openclaw.log 2>&1 &
 sleep 2
@@ -130,7 +137,7 @@ else
     echo '🚀 未发现运行中的 Gateway，准备启动...'
 fi
 echo '📁 切换到工作目录...'
-cd /Users/zzy/.openclaw/workspace
+cd \(workspacePath)
 echo '🚀 启动 Gateway...'
 nohup openclaw gateway > /tmp/openclaw.log 2>&1 &
 sleep 2
@@ -210,12 +217,12 @@ end tell
         
         switch action {
         case "启动":
-            let script = "cd /Users/zzy/.openclaw/workspace && nohup openclaw gateway > /tmp/openclaw.log 2>&1 &"
+            let script = "cd \(workspacePath) && nohup openclaw gateway > /tmp/openclaw.log 2>&1 &"
             runShellCommand(script)
         case "停止":
             runShellCommand("killall openclaw-gateway")
         case "重启":
-            let script = "pkill openclaw-gateway; sleep 2; cd /Users/zzy/.openclaw/workspace && nohup openclaw gateway > /tmp/openclaw.log 2>&1 &"
+            let script = "pkill openclaw-gateway; sleep 2; cd \(workspacePath) && nohup openclaw gateway > /tmp/openclaw.log 2>&1 &"
             runShellCommand(script)
         default:
             break
@@ -237,7 +244,7 @@ end tell
         DispatchQueue.main.async {
             let alert = NSAlert()
             alert.messageText = "需要自动化权限"
-            alert.informativeText = "Tony Controller 需要控制 Terminal 的权限。请前往系统设置 > 隐私与安全性 > 自动化，允许 Tony Controller 控制 Terminal。"
+            alert.informativeText = "OpenClaw MenuBar 需要控制 Terminal 的权限。请前往系统设置 > 隐私与安全性 > 自动化，允许 OpenClaw MenuBar 控制 Terminal。"
             alert.alertStyle = .warning
             alert.addButton(withTitle: "打开设置")
             alert.addButton(withTitle: "取消")
